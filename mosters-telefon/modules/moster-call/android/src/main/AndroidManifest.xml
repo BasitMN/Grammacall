@@ -1,0 +1,25 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <application>
+    <!-- Declared in the module manifest (tracked source, merged at build time),
+         next to the Kotlin that implements them, so prebuild cannot drop them. -->
+    <service
+      android:name="se.basit.mostercall.MosterInCallService"
+      android:exported="true"
+      android:permission="android.permission.BIND_INCALL_SERVICE">
+      <!-- We draw the call UI; Telecom still plays the ringtone. -->
+      <meta-data android:name="android.telecom.IN_CALL_SERVICE_UI" android:value="true" />
+      <meta-data android:name="android.telecom.IN_CALL_SERVICE_RINGING" android:value="false" />
+      <intent-filter>
+        <action android:name="android.telecom.InCallService" />
+      </intent-filter>
+    </service>
+
+    <activity
+      android:name="se.basit.mostercall.CallActivity"
+      android:exported="false"
+      android:excludeFromRecents="true"
+      android:launchMode="singleTask"
+      android:screenOrientation="portrait"
+      android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar" />
+  </application>
+</manifest>

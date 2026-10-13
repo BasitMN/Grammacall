@@ -1,0 +1,16 @@
+# Build and dev-server logs
+*.log
+
+# Built APKs (rebuild with gradlew; distribute outside git)
+release/
+*.apk
+*.aab
+
+# Signing keys — never commit
+*.jks
+*.keystore
+
+# Gradle/Kotlin build output (also inside local modules)
+build/
+.gradle/
+.kotlin/
