@@ -17,3 +17,8 @@ build/
 
 # Local Claude Code settings
 .claude/
+
+# Private planning documents — kept locally, not in the repo
+GRAMMA_APP_PLAN.md
+GrammaCall-UI-mockup.html
+PLAYSTORE_PLAN.md
