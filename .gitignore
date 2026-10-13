@@ -14,3 +14,6 @@ release/
 build/
 .gradle/
 .kotlin/
+
+# Local Claude Code settings
+.claude/
