@@ -1,4 +1,4 @@
-# Mosters telefon – drift och skötsel
+# GrammaCall – drift och skötsel
 
 Den här guiden är för familjen. Den ska gå att följa även om Basit inte är
 tillgänglig. Inga förkunskaper krävs, men du behöver kunna hantera en
@@ -80,7 +80,7 @@ i grönt. Står något **Nej** i rött finns en knapp under för att rätta det.
 
 | Problem | Trolig orsak | Gör så här |
 |---|---|---|
-| Notis: **"Mosters telefon tar inte emot samtal"** | Någon har öppnat Samsungs vanliga Telefon-app, som då tog tillbaka rollen som telefonapp. | Inställningar → **Gör till standardapp för telefon** → välj Mosters telefon. |
+| Notis: **"GrammaCall tar inte emot samtal"** | Någon har öppnat Samsungs vanliga Telefon-app, som då tog tillbaka rollen som telefonapp. | Inställningar → **Gör till standardapp för telefon** → välj GrammaCall. |
 | Hon trycker på en bild men inget samtal går ut | Samma som ovan. | Samma som ovan. |
 | Telefonen svarar inte själv | Samma som ovan, eller **Svara automatiskt** är avstängt, eller numret i appen stämmer inte med det personen ringer från. | Kontrollera TELEFONEN-statusen och brytaren under AUTOSVAR. Kontrollera numret under **Byt**. |
 | Ingen högtalare | **Högtalare och max volym i alla samtal** är avstängd. | Slå på den under AUTOSVAR. |
@@ -105,7 +105,7 @@ Uppdateringar kan återställa standardappar eller behörigheter.
    ett utgående samtal, ett inkommande från en person på hemskärmen och ett
    från ett okänt nummer.
 3. Om Play Protect har varnat eller stängt av appen: öppna **Play Butik →
-   profilbilden → Play Protect**, och tillåt Mosters telefon igen.
+   profilbilden → Play Protect**, och tillåt GrammaCall igen.
 
 ---
 
@@ -122,20 +122,20 @@ Uppdateringar kan återställa standardappar eller behörigheter.
    via USB, e-post eller Google Drive) och öppna den. Tillåt installation från
    den källan när telefonen frågar. Om **Play Protect** varnar: tryck
    **Mer information → Installera ändå**.
-2. **Öppna Mosters telefon.** Hemskärmen säger "Inga kontakter ännu".
+2. **Öppna GrammaCall.** Hemskärmen säger "Inga kontakter ännu".
 3. **Öppna inställningarna** (avsnitt 2). Första gången väljer du en ny
    PIN-kod och skriver den två gånger. Skriv upp koden på ett säkert ställe.
 4. Telefonen frågar om **aviseringar** – tryck **Tillåt**.
    *Gör detta före nästa steg.* Annars kan varningsnotisen sluta fungera.
 5. Under TELEFONEN, tryck i tur och ordning:
-   - **Gör till standardapp för telefon** → Mosters telefon.
+   - **Gör till standardapp för telefon** → GrammaCall.
      Kommer rutan **"App was denied access" / "Appen nekades åtkomst"**?
      Det är Androids skydd för appar som installerats från en fil. Tryck
-     **Stäng**, öppna Androids **Inställningar → Appar → Mosters telefon →
+     **Stäng**, öppna Androids **Inställningar → Appar → GrammaCall →
      ⋮ (tre prickar uppe till höger) → Tillåt begränsade inställningar**,
      bekräfta, och försök igen. (Behövs inte om appen installerades med
      dator och `adb install`.)
-   - **Gör till hemskärm** → Mosters telefon.
+   - **Gör till hemskärm** → GrammaCall.
    - **Stäng av batterisparläge för appen** → Tillåt.
 6. **Lägg till personerna** (avsnitt 3), med arabiska namn och bra foton.
 7. Kontrollera att **Arabisk röst** står **Ja**, annars installera den (se tabellen).
@@ -159,7 +159,7 @@ Personer, foton och PIN-kod finns kvar.
 ## 7. Övrigt
 
 **Glömt PIN-koden:** Den går inte att återställa i appen. Androids
-inställningar → Appar → Mosters telefon → Lagring → **Rensa data**. Då
+inställningar → Appar → GrammaCall → Lagring → **Rensa data**. Då
 försvinner även personerna och allt måste göras om från steg 3 i avsnitt 6.
 
 **Ta tillbaka telefonen till normalt läge** (t.ex. om appen ska tas bort):
@@ -167,6 +167,6 @@ försvinner även personerna och allt måste göras om från steg 3 i avsnitt 6.
    Samsungs (eller tillverkarens) hemskärm.
 2. Androids inställningar → Appar → **Standardappar → Telefonapp** → välj
    tillverkarens Telefon-app.
-3. Avinstallera Mosters telefon.
+3. Avinstallera GrammaCall.
 
 **Teknisk dokumentation** (engelska) finns i [`README.md`](README.md).

@@ -1,4 +1,4 @@
-# Mosters telefon
+# GrammaCall
 
 An Android phone app for one person: a 90-year-old who only speaks Arabic and
 finds modern phones hard to use. Her whole screen is up to nine large photo
@@ -25,7 +25,7 @@ The app is **sideloaded**, never published to Play Store.
 | Anyone else calls | Normal ringing with big SVARA / AVVISA. Never auto-answered. Speaker on if she answers. |
 | Call ends | App returns to the tiles by itself. |
 | Home button / reboot | Lands on the tiles (the app is the launcher). |
-| Something takes the phone-app role away | Sticky notification "Mosters telefon tar inte emot samtal" within a minute; red status in settings. |
+| Something takes the phone-app role away | Sticky notification "GrammaCall tar inte emot samtal" within a minute; red status in settings. |
 
 Settings (Swedish, for the nephew): hold the faint gear in the top-right corner for
 5 seconds (a 5…1 countdown shows), then a 4-digit PIN.
@@ -167,7 +167,7 @@ Native (Kotlin, manifest, plugin) changes need a rebuild; JS changes don't.
 Android 13+ treats an APK opened from a file manager, browser or Drive as
 untrusted and blocks it from **restricted roles/permissions**, including
 `ROLE_DIALER` ("App was denied access"). The user must unlock it once:
-Settings → Apps → Mosters telefon → ⋮ → *Allow restricted settings*, then
+Settings → Apps → GrammaCall → ⋮ → *Allow restricted settings*, then
 retry. `adb install` is trusted and skips this. Documented for the family in
 `DRIFT.md` §6.
 

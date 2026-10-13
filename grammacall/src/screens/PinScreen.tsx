@@ -49,7 +49,7 @@ export function PinScreen(props: Props) {
     <SafeAreaView style={styles.screen}>
       <View style={styles.heading}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{message ?? 'Mosters telefon · endast för Baz'}</Text>
+        <Text style={styles.subtitle}>{message ?? 'GrammaCall · endast för anhöriga'}</Text>
       </View>
       <View style={styles.dots}>
         {Array.from({ length: PIN_LENGTH }, (_, i) => (

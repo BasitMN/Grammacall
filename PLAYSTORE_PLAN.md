@@ -1,4 +1,4 @@
-# Plan: from "Mosters telefon" to a commercial app on Google Play
+# Plan: GrammaCall (formerly "Mosters telefon") as a commercial app on Google Play
 
 *Written 2026-10-13. Starting point: a working v1 built for one person
 (sideloaded, Swedish UI, Arabic voice, verified on a Samsung S26 Ultra /
@@ -43,9 +43,9 @@ Biggest risks, in order:
    - Subscription (e.g. 29–49 kr/month) — only justified once there is a
      cloud feature such as remote management (Phase 5).
    - Free app + paid "remote family management".
-4. **Name and brand.** "Mosters telefon" is personal. Pick a neutral brand that
-   works in several languages; check trademark (PRV / EUIPO) and domain.
-5. **Final package name**, e.g. `se.<brand>.phone`. **This cannot be changed
+4. **Name and brand.** Chosen 2026-10-13: **GrammaCall** (package `se.basit.grammacall`). Still check that
+   it is free in Play Store and as a trademark (PRV / EUIPO), and get a domain.
+5. **Final package name**: `se.basit.grammacall` (or a company domain). **This cannot be changed
    after the first Play upload** — decide it now.
 6. **Legal entity.** Enskild firma is enough to start; AB limits personal
    liability (relevant for an app that handles calls for the elderly). Talk to
@@ -136,7 +136,7 @@ least 2 languages, on at least 5 device models, and 112 works.
 32. **Crash reporting** (Sentry or Firebase Crashlytics) — must be declared in
     the Data Safety form and privacy policy; no contact names/numbers in reports.
 33. **Remove dev leftovers**: unused `getDeviceInfo`, spike comments, `expo-dev-client`
-    from release config, the hard-coded "endast för Baz" text.
+    from release config, internal `MosterCall`/`moster-call` names (optional).
 34. **Versioning**: `versionCode` / `versionName` bump per release; changelog.
 
 ---

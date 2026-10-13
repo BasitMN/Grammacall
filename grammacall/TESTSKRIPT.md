@@ -1,4 +1,4 @@
-# Testskript – Mosters telefon
+# Testskript – GrammaCall
 
 Kör hela skriptet **efter varje ändring av appen**, efter en
 **Android-uppdatering** och på **varje ny enhet**. Det tar ungefär 15 minuter.
@@ -73,8 +73,8 @@ Markera varje steg: ✅ som förväntat, ❌ avvikelse (skriv vad som hände).
 | # | Gör | Förväntat |
 |---|---|---|
 | 29 | Sätt telefonen på laddning, lämna på hemskärmen i 5 min. | Skärmen förblir tänd. |
-| 30 | (Bara med dator och adb) Kör `adb shell cmd role add-role-holder android.app.role.DIALER com.samsung.android.dialer`. Vänta 1 min med skärmen tänd. | Notis **"Mosters telefon tar inte emot samtal"**. TELEFONEN visar rött **Nej** för standardapp. |
-| 31 | Tryck **Gör till standardapp för telefon** → Mosters telefon. | Status blir **Ja**. Notisen försvinner inom en minut. |
+| 30 | (Bara med dator och adb) Kör `adb shell cmd role add-role-holder android.app.role.DIALER com.samsung.android.dialer`. Vänta 1 min med skärmen tänd. | Notis **"GrammaCall tar inte emot samtal"**. TELEFONEN visar rött **Nej** för standardapp. |
+| 31 | Tryck **Gör till standardapp för telefon** → GrammaCall. | Status blir **Ja**. Notisen försvinner inom en minut. |
 | 32 | Ring ut och ta emot ett samtal igen (steg 11 och 15). | Fungerar som tidigare. |
 
 ## G. Avslutning
