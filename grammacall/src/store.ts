@@ -20,7 +20,7 @@ const DEFAULT_CONFIG: Config = {
   speaker: true,
 };
 
-const configFile = new File(Paths.document, 'moster-config.json');
+const configFile = new File(Paths.document, 'gramma-config.json');
 const photoDir = new Directory(Paths.document, 'photos');
 
 export function loadConfig(): Config {

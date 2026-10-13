@@ -1,4 +1,4 @@
-package se.basit.mostercall
+package se.basit.grammacall.call
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -11,7 +11,7 @@ import android.util.Log
 // auto-answer and outgoing calls stop silently. This puts a sticky notification
 // up for whoever in the family looks at the phone next.
 object RoleWarning {
-  private const val CHANNEL = "moster-status"
+  private const val CHANNEL = "gramma-status"
   private const val ID = 1001
 
   fun update(context: Context, show: Boolean) {
@@ -39,7 +39,7 @@ object RoleWarning {
         .build()
       manager.notify(ID, notification)
     } catch (e: Exception) {
-      Log.e(MosterInCallService.TAG, "could not show role warning", e)
+      Log.e(GrammaInCallService.TAG, "could not show role warning", e)
     }
   }
 }

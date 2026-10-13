@@ -1,4 +1,4 @@
-// Colours and type from the UI mockup ("Mosters telefon — UI-mockup.html").
+// Colours and type from the UI mockup ("GrammaCall-UI-mockup.html").
 export const colors = {
   background: '#ECEDEF',
   surface: '#FFFFFF',

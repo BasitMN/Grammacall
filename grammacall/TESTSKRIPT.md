@@ -4,7 +4,7 @@ Kör hela skriptet **efter varje ändring av appen**, efter en
 **Android-uppdatering** och på **varje ny enhet**. Det tar ungefär 15 minuter.
 
 Du behöver:
-- **Telefon A** – mosters telefon med appen.
+- **Telefon A** – grammas telefon med appen.
 - **Telefon B** – en telefon vars nummer finns **på hemskärmen** i appen.
 - **Telefon C** – en telefon vars nummer **inte** finns i appen (för de
   negativa testerna). Saknas telefon C: stäng tillfälligt av "Svara

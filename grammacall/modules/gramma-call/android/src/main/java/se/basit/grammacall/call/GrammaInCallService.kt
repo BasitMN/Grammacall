@@ -1,4 +1,4 @@
-package se.basit.mostercall
+package se.basit.grammacall.call
 
 import android.content.Intent
 import android.media.AudioManager
@@ -19,7 +19,7 @@ import android.util.Log
 //
 // We are her only phone app: an uncaught exception here means calls cannot be
 // shown or answered. Every entry point is therefore wrapped in safely().
-class MosterInCallService : InCallService() {
+class GrammaInCallService : InCallService() {
   private val handler = Handler(Looper.getMainLooper())
   private var endpoints: List<CallEndpoint> = emptyList()
 
@@ -141,7 +141,7 @@ class MosterInCallService : InCallService() {
         if (state == Call.STATE_ACTIVE) {
           CallSpeech.stop()
           // Every call she is in goes to speaker: auto-answered, answered by hand, or outgoing.
-          if (CallSettings.speaker(this@MosterInCallService)) {
+          if (CallSettings.speaker(this@GrammaInCallService)) {
             // Telecom settles its own route right after ACTIVE; override after that.
             handler.postDelayed({ speakerAndMaxVolume() }, SPEAKER_DELAY_MS)
           }
@@ -152,11 +152,11 @@ class MosterInCallService : InCallService() {
   }
 
   companion object {
-    const val TAG = "MosterCall"
+    const val TAG = "GrammaCall"
     private const val ANSWER_DELAY_MS = 2000L
     private const val SPEAKER_DELAY_MS = 500L
 
-    var instance: MosterInCallService? = null
+    var instance: GrammaInCallService? = null
       private set
     val activeCalls = mutableListOf<Call>()
     // Calls that will be (or were) auto-answered, and when.

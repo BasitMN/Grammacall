@@ -1,4 +1,4 @@
-package se.basit.mostercall
+package se.basit.grammacall.call
 
 import android.content.Context
 import android.graphics.Bitmap

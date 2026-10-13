@@ -4,14 +4,14 @@ Den här guiden är för familjen. Den ska gå att följa även om Basit inte ä
 tillgänglig. Inga förkunskaper krävs, men du behöver kunna hantera en
 Android-telefon.
 
-> **Viktigt:** Appen är **inget trygghetslarm**. Moster har ett separat larm
+> **Viktigt:** Appen är **inget trygghetslarm**. Gramma har ett separat larm
 > från kommunen för nödsituationer.
 
 ---
 
 ## 1. Vad appen gör
 
-- Hela skärmen är stora bilder på mosters viktigaste personer (högst 9).
+- Hela skärmen är stora bilder på grammas viktigaste personer (högst 9).
 - Hon trycker på en bild → skärmen visar "Ringer …" och räknar ner 5 sekunder
   (stor röd **AVBRYT** om hon tryckte fel) → ett vanligt telefonsamtal rings
   upp, på högtalare och full volym.
@@ -90,7 +90,7 @@ i grönt. Står något **Nej** i rött finns en knapp under för att rätta det.
 | Skärmen släcks på laddaren | Normalt bara om laddningen är pausad. | Inget att göra; den tänds vid nästa samtal. |
 | Ringer folk som inte ska få ringa? | Appen blockerar ingen; okända nummer ringer som vanligt. | – |
 
-**Öppna aldrig Samsungs Telefon-app på mosters telefon.** Den tar tillbaka
+**Öppna aldrig Samsungs Telefon-app på grammas telefon.** Den tar tillbaka
 rollen som telefonapp och då slutar autosvar och utgående samtal att fungera
 (tills det rättas enligt tabellen).
 
@@ -115,7 +115,7 @@ Uppdateringar kan återställa standardappar eller behörigheter.
 - **Android 12 eller nyare**, helst 14 eller nyare. (Inställningar → Om telefonen → Programvaruinformation.) På äldre Android går appen inte att installera.
 - Den måste kunna ringa **vanliga telefonsamtal** med SIM-kort. Många
   surfplattor med SIM kan bara använda mobildata – på dem fungerar appen inte.
-- Telefonnumret som moster har ska sitta i den.
+- Telefonnumret som gramma har ska sitta i den.
 
 ### Steg
 1. **Installera appen.** Kopiera filen `app-release.apk` till telefonen (t.ex.
@@ -143,7 +143,7 @@ Uppdateringar kan återställa standardappar eller behörigheter.
    - Ringsignalens volym: max.
    - **Stör ej**: avstängt.
    - Skärmlås: överväg **Ingen** (Inställningar → Låsskärm → Skärmlåstyp), så
-     att moster aldrig behöver låsa upp. Nackdelen är att vem som helst kan
+     att gramma aldrig behöver låsa upp. Nackdelen är att vem som helst kan
      använda telefonen.
 9. **Kör hela [`TESTSKRIPT.md`](TESTSKRIPT.md).** Var noga med att ett
    okänt nummer *inte* besvaras automatiskt.

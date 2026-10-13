@@ -1,4 +1,4 @@
-package se.basit.mostercall
+package se.basit.grammacall.call
 
 import android.content.Context
 import android.telephony.PhoneNumberUtils
@@ -16,7 +16,7 @@ data class SavedContact(
 // Call behaviour and contacts set from the settings screen. Stored natively so
 // the InCallService and call screen work without the JS runtime being alive.
 object CallSettings {
-  private const val PREFS = "moster_call"
+  private const val PREFS = "gramma_call"
   private const val KEY_WHITELIST = "whitelist"
   private const val KEY_SPEAKER = "speaker"
   private const val KEY_CONTACTS = "contacts"

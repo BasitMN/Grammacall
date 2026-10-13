@@ -1,4 +1,4 @@
-# Plan: GrammaCall (formerly "Mosters telefon") as a commercial app on Google Play
+# Plan: GrammaCall as a commercial app on Google Play
 
 *Written 2026-10-13. Starting point: a working v1 built for one person
 (sideloaded, Swedish UI, Arabic voice, verified on a Samsung S26 Ultra /
@@ -86,7 +86,7 @@ Biggest risks, in order:
     - Handle incoming emergency call-backs (never auto-reject, never hidden).
     - Consider an explicit, clearly separated emergency path — but **never**
       describe the app as an alarm.
-15. **Crash safety review** of `MosterInCallService` / `CallActivity`
+15. **Crash safety review** of `GrammaInCallService` / `CallActivity`
     (already wrapped in `safely()`); add automated tests for every call state.
 16. **Fallback if our call screen fails**: verify on several devices that
     Telecom falls back to the system dialer if our InCallService dies.
@@ -136,7 +136,7 @@ least 2 languages, on at least 5 device models, and 112 works.
 32. **Crash reporting** (Sentry or Firebase Crashlytics) — must be declared in
     the Data Safety form and privacy policy; no contact names/numbers in reports.
 33. **Remove dev leftovers**: unused `getDeviceInfo`, spike comments, `expo-dev-client`
-    from release config, internal `MosterCall`/`moster-call` names (optional).
+    from release config, internal `GrammaCall`/`gramma-call` names (optional).
 34. **Versioning**: `versionCode` / `versionName` bump per release; changelog.
 
 ---
@@ -234,7 +234,7 @@ Ship v1.0 on Play **without** Phase 5; add it as a paid upgrade later.
 1. Put the code in a private Git repository.
 2. Choose the brand name and final package name.
 3. Write 10 interview questions and book 5 families.
-4. Get the aunt's device details and run `TESTSKRIPT.md` on it — her real-world
+4. Get Gramma's device details and run `TESTSKRIPT.md` on it — her real-world
    use is the best product research you have.
 5. Create the Play developer account early (identity/organisation verification
    can take time).

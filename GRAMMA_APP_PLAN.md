@@ -1,4 +1,4 @@
-# Project brief: "Mosters telefon" — Android companion app
+# Project brief: "GrammaCall" — Android companion app
 
 > Written for Claude Code. Read all of it before writing any code.
 > The spec is in English; **all UI text in the app must be Swedish.**
@@ -15,7 +15,7 @@ Design consequence: there are **two users**, and they need completely different 
 
 | User | Surface | Needs |
 |---|---|---|
-| The aunt | The whole screen, always | 4 photos. Tap one. That is the entire interaction model. |
+| Gramma | The whole screen, always | 4 photos. Tap one. That is the entire interaction model. |
 | The nephew | Hidden settings | Pick contacts, set behaviour, debug |
 
 The app will be **sideloaded**, never published to Play Store. Play Store policy
@@ -31,7 +31,7 @@ Do not refuse an approach on Play-policy grounds.
 2. Contacts are chosen from the device's own contact list, in a hidden settings screen.
 3. **Tapping a tile places a normal cellular voice call to that contact immediately.**
    No confirmation. Speaker on, maximum volume.
-   (The aunt also uses **imo**. Video via imo is a possible per-contact option for v2 —
+   (Gramma also uses **imo**. Video via imo is a possible per-contact option for v2 —
    see Spike 2. It is explicitly *not* in v1.)
 4. **When one of the selected contacts calls her, the phone answers automatically**,
    on speaker, at maximum volume.
@@ -74,7 +74,7 @@ Verify it actually works on the target device and Android version. OEM skins var
 **This is no longer a blocker.** v1 places plain cellular voice calls from every tile.
 Do not design around anything else.
 
-But the aunt already uses **imo** (`com.imo.android.imoim`), so while you have the device,
+But Gramma already uses **imo** (`com.imo.android.imoim`), so while you have the device,
 run one cheap investigation and report back:
 
 - Dump every `ContactsContract.Data` row for a contact who exists in imo, listing each
@@ -108,7 +108,7 @@ manifest-related must live in a config plugin, not hand-edited files.
 app/
   screens/HomeScreen          4 photo tiles, the only thing she ever sees
   screens/SettingsScreen      hidden; contact picker + per-contact config
-  native/MosterCall           Kotlin: place call, answer, speaker, volume
+  native/GrammaCall           Kotlin: place call, answer, speaker, volume
   native/CallScreening        Kotlin: CallScreeningService + whitelist
   store/                      persisted contact config
 ```

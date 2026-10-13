@@ -23,7 +23,7 @@
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "./plugins/withMosterManifest",
+      "./plugins/withGrammaManifest",
       [
         "expo-font",
         {

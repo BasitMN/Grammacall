@@ -1,4 +1,4 @@
-export type MosterCallModuleEvents = {
+export type GrammaCallModuleEvents = {
   // Home button pressed while the app (the launcher) is already in front.
   onHomePressed: () => void;
 };

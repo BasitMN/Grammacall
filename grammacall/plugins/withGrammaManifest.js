@@ -34,7 +34,7 @@ const HOME_FILTER = {
   category: [action('android.intent.category.HOME'), action('android.intent.category.DEFAULT')],
 };
 
-module.exports = function withMosterManifest(config) {
+module.exports = function withGrammaManifest(config) {
   config = AndroidConfig.Permissions.withPermissions(config, PERMISSIONS);
 
   return withAndroidManifest(config, (cfg) => {

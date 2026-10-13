@@ -3,7 +3,7 @@
     <!-- Declared in the module manifest (tracked source, merged at build time),
          next to the Kotlin that implements them, so prebuild cannot drop them. -->
     <service
-      android:name="se.basit.mostercall.MosterInCallService"
+      android:name="se.basit.grammacall.call.GrammaInCallService"
       android:exported="true"
       android:permission="android.permission.BIND_INCALL_SERVICE">
       <!-- We draw the call UI; Telecom still plays the ringtone. -->
@@ -15,7 +15,7 @@
     </service>
 
     <activity
-      android:name="se.basit.mostercall.CallActivity"
+      android:name="se.basit.grammacall.call.CallActivity"
       android:exported="false"
       android:excludeFromRecents="true"
       android:launchMode="singleTask"

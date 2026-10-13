@@ -1,4 +1,4 @@
-package se.basit.mostercall
+package se.basit.grammacall.call
 
 import android.app.Activity
 import android.graphics.Color
@@ -54,18 +54,18 @@ class CallActivity : Activity() {
 
   override fun onStart() {
     super.onStart()
-    MosterInCallService.addListener(listener)
+    GrammaInCallService.addListener(listener)
     handler.post(ticker)
     render()
   }
 
   override fun onStop() {
-    MosterInCallService.removeListener(listener)
+    GrammaInCallService.removeListener(listener)
     handler.removeCallbacks(ticker)
     super.onStop()
   }
 
-  private fun currentCall(): Call? = MosterInCallService.activeCalls.firstOrNull()
+  private fun currentCall(): Call? = GrammaInCallService.activeCalls.firstOrNull()
 
   private fun render() {
     try {
@@ -73,7 +73,7 @@ class CallActivity : Activity() {
       val state = call.details.state
       if (state == Call.STATE_DISCONNECTED) return finish()
       val next = when {
-        state == Call.STATE_RINGING && call in MosterInCallService.autoAnswerAt -> Mode.AUTO_ANSWER
+        state == Call.STATE_RINGING && call in GrammaInCallService.autoAnswerAt -> Mode.AUTO_ANSWER
         state == Call.STATE_RINGING -> Mode.RINGING
         else -> Mode.IN_CALL
       }
@@ -84,7 +84,7 @@ class CallActivity : Activity() {
       }
       updateDynamic()
     } catch (e: Exception) {
-      Log.e(MosterInCallService.TAG, "CallActivity render failed", e)
+      Log.e(GrammaInCallService.TAG, "CallActivity render failed", e)
     }
   }
 
@@ -93,7 +93,7 @@ class CallActivity : Activity() {
     val call = shownCall ?: return
     when (mode) {
       Mode.AUTO_ANSWER -> {
-        val at = MosterInCallService.autoAnswerAt[call] ?: return
+        val at = GrammaInCallService.autoAnswerAt[call] ?: return
         val secs = ceil((at - System.currentTimeMillis()) / 1000.0).toInt().coerceAtLeast(0)
         status?.text = "Du kopplas fram\nom $secs ${if (secs == 1) "sekund" else "sekunder"}"
       }
@@ -104,7 +104,7 @@ class CallActivity : Activity() {
           Call.STATE_DISCONNECTING -> "Samtalet avslutas"
           else -> "Ringer upp…"
         }
-        val on = MosterInCallService.speakerOn
+        val on = GrammaInCallService.speakerOn
         speakerPill?.apply {
           text = if (on) "🔊  Högtalare på" else "Högtalare av"
           background = rounded(if (on) SUCCESS else MUTED_PILL, 999f)
@@ -156,8 +156,8 @@ class CallActivity : Activity() {
         speakerPill = text("", 24f, bold, Color.WHITE).apply {
           setPadding(px(26), px(14), px(26), px(14))
           setOnClickListener {
-            val on = MosterInCallService.speakerOn
-            MosterInCallService.instance?.setSpeaker(!on)
+            val on = GrammaInCallService.speakerOn
+            GrammaInCallService.instance?.setSpeaker(!on)
           }
         }
         center.addView(speakerPill, LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT))

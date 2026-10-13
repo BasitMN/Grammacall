@@ -1,4 +1,4 @@
-package se.basit.mostercall
+package se.basit.grammacall.call
 
 import android.content.Context
 import android.speech.tts.TextToSpeech
@@ -19,11 +19,11 @@ object CallSpeech : TextToSpeech.OnInitListener {
   override fun onInit(status: Int) {
     ready = status == TextToSpeech.SUCCESS
     if (!ready) {
-      Log.w(MosterInCallService.TAG, "TTS init failed: $status")
+      Log.w(GrammaInCallService.TAG, "TTS init failed: $status")
       return
     }
     val result = tts?.setLanguage(Locale("ar"))
-    Log.i(MosterInCallService.TAG, "TTS ready, arabic=$result")
+    Log.i(GrammaInCallService.TAG, "TTS ready, arabic=$result")
     pending?.let { speak(it) }
     pending = null
   }
@@ -42,6 +42,6 @@ object CallSpeech : TextToSpeech.OnInitListener {
       pending = text
       return
     }
-    tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, "moster-caller")
+    tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, "gramma-caller")
   }
 }

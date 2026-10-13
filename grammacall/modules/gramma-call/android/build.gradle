@@ -3,11 +3,11 @@ plugins {
   id 'expo-module-gradle-plugin'
 }
 
-group = 'se.basit.mostercall'
+group = 'se.basit.grammacall.call'
 version = '0.1.0'
 
 android {
-  namespace "se.basit.mostercall"
+  namespace "se.basit.grammacall.call"
   defaultConfig {
     versionCode 1
     versionName "0.1.0"

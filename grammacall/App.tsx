@@ -8,7 +8,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { AppState, BackHandler, PermissionsAndroid, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
-import MosterCall from './modules/moster-call';
+import GrammaCall from './modules/gramma-call';
 import { Contact } from './src/contacts';
 import { pickDeviceContact } from './src/pickers';
 import { ContactEditorScreen, EditorDraft } from './src/screens/ContactEditorScreen';
@@ -35,9 +35,9 @@ const STATUS_CHECK_MS = 60_000;
 
 // The native side decides auto-answer and speaker without JS running.
 function syncNative(config: Config) {
-  MosterCall.setWhitelist(config.autoAnswer ? config.contacts.map((c) => c.phone) : []);
-  MosterCall.setSpeaker(config.speaker);
-  MosterCall.setContacts(
+  GrammaCall.setWhitelist(config.autoAnswer ? config.contacts.map((c) => c.phone) : []);
+  GrammaCall.setSpeaker(config.speaker);
+  GrammaCall.setContacts(
     config.contacts.map(({ name, spokenName, phone, photoUri, position }) => ({
       name,
       spokenName,
@@ -57,11 +57,11 @@ function withPositions(contacts: Contact[]): Contact[] {
 // also raises a notification for whoever looks at the phone next.
 function readPhoneStatus(): PhoneStatus {
   const status = {
-    dialer: MosterCall.hasDialerRole(),
-    home: MosterCall.hasHomeRole(),
-    battery: MosterCall.isIgnoringBatteryOptimizations(),
+    dialer: GrammaCall.hasDialerRole(),
+    home: GrammaCall.hasHomeRole(),
+    battery: GrammaCall.isIgnoringBatteryOptimizations(),
   };
-  MosterCall.setRoleWarning(!status.dialer);
+  GrammaCall.setRoleWarning(!status.dialer);
   return status;
 }
 
@@ -120,7 +120,7 @@ export default function App() {
   // We are the launcher: the home button doesn't change app state, so the
   // native side reports it. It locks settings and cancels a countdown.
   useEffect(() => {
-    const sub = MosterCall.addListener('onHomePressed', goHome);
+    const sub = GrammaCall.addListener('onHomePressed', goHome);
     return () => sub.remove();
   }, [goHome]);
 
@@ -146,7 +146,7 @@ export default function App() {
   const dial = useCallback(
     (contact: Contact) => {
       try {
-        MosterCall.placeCall(contact.phone);
+        GrammaCall.placeCall(contact.phone);
       } catch (e) {
         // Never surface errors to her; the nephew sees this in logcat.
         console.warn('placeCall failed', e);
@@ -261,10 +261,10 @@ export default function App() {
             onSystemAction={(action) => {
               // These open system screens; don't lock settings meanwhile.
               external.current = true;
-              if (action === 'dialer') MosterCall.requestDialerRole();
-              if (action === 'home') MosterCall.requestHomeRole();
-              if (action === 'battery') MosterCall.requestIgnoreBatteryOptimizations();
-              if (action === 'leave') MosterCall.openHomeSettings();
+              if (action === 'dialer') GrammaCall.requestDialerRole();
+              if (action === 'home') GrammaCall.requestHomeRole();
+              if (action === 'battery') GrammaCall.requestIgnoreBatteryOptimizations();
+              if (action === 'leave') GrammaCall.openHomeSettings();
             }}
             onChangePin={() => setScreen({ name: 'newPin' })}
             onLock={goHome}

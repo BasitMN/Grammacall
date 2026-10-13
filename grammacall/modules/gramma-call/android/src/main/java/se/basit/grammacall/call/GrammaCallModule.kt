@@ -1,4 +1,4 @@
-package se.basit.mostercall
+package se.basit.grammacall.call
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -17,7 +17,7 @@ import expo.modules.kotlin.exception.Exceptions
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
 
-class MosterCallModule : Module() {
+class GrammaCallModule : Module() {
   private val context
     get() = appContext.reactContext ?: throw Exceptions.ReactContextLost()
 
@@ -25,12 +25,12 @@ class MosterCallModule : Module() {
     get() = context.getSystemService(RoleManager::class.java)
 
   override fun definition() = ModuleDefinition {
-    Name("MosterCall")
+    Name("GrammaCall")
 
     Events("onHomePressed")
 
-    OnCreate { instance = this@MosterCallModule }
-    OnDestroy { if (instance == this@MosterCallModule) instance = null }
+    OnCreate { instance = this@GrammaCallModule }
+    OnDestroy { if (instance == this@GrammaCallModule) instance = null }
 
     Function("getDeviceInfo") {
       mapOf(
@@ -117,7 +117,7 @@ class MosterCallModule : Module() {
       @SuppressLint("MissingPermission")
       context.getSystemService(TelecomManager::class.java)
         .placeCall(Uri.fromParts("tel", number, null), Bundle())
-      Log.i(MosterInCallService.TAG, "placeCall($number)")
+      Log.i(GrammaInCallService.TAG, "placeCall($number)")
     }
   }
 
@@ -125,14 +125,14 @@ class MosterCallModule : Module() {
     private const val REQUEST_DIALER_ROLE = 4712
     private const val REQUEST_HOME_ROLE = 4713
 
-    private var instance: MosterCallModule? = null
+    private var instance: GrammaCallModule? = null
 
-    // Called from MosterCallPackage when the home button is pressed in-app.
+    // Called from GrammaCallPackage when the home button is pressed in-app.
     fun homePressed() {
       try {
         instance?.sendEvent("onHomePressed", emptyMap<String, Any>())
       } catch (e: Exception) {
-        Log.e(MosterInCallService.TAG, "could not forward home press", e)
+        Log.e(GrammaInCallService.TAG, "could not forward home press", e)
       }
     }
   }

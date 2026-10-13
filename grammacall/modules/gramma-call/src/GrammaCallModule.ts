@@ -1,8 +1,8 @@
 import { NativeModule, requireNativeModule } from 'expo';
 
-import { DeviceInfo, MosterCallModuleEvents, NativeContact } from './MosterCall.types';
+import { DeviceInfo, GrammaCallModuleEvents, NativeContact } from './GrammaCall.types';
 
-declare class MosterCallModule extends NativeModule<MosterCallModuleEvents> {
+declare class GrammaCallModule extends NativeModule<GrammaCallModuleEvents> {
   getDeviceInfo(): DeviceInfo;
   setWhitelist(numbers: string[]): void;
   getWhitelist(): string[];
@@ -19,4 +19,4 @@ declare class MosterCallModule extends NativeModule<MosterCallModuleEvents> {
   setRoleWarning(show: boolean): void;
 }
 
-export default requireNativeModule<MosterCallModule>('MosterCall');
+export default requireNativeModule<GrammaCallModule>('GrammaCall');

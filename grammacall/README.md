@@ -44,16 +44,16 @@ src/
   speech.ts                     Arabic TTS for outgoing confirmation (expo-speech)
   pickers.ts                    System contact picker, gallery photo picker
   useKeepAwakeWhileCharging.ts  Screen stays on while on the charger
-modules/moster-call/            Local Expo module (Kotlin)
-  MosterInCallService.kt        Telecom InCallService: every call, auto-answer, speaker
+modules/gramma-call/            Local Expo module (Kotlin)
+  GrammaInCallService.kt        Telecom InCallService: every call, auto-answer, speaker
   CallActivity.kt               Her call screens (native, see below)
   PortraitView.kt               Round photo / silhouette for the call screen
   CallSettings.kt               Whitelist, speaker flag, contacts — SharedPreferences
   CallSpeech.kt                 Arabic "call from …" announcement (Android TTS)
   RoleWarning.kt                Notification when the dialer role is lost
-  MosterCallModule.kt           JS ↔ native bridge (roles, placeCall, settings sync)
+  GrammaCallModule.kt           JS ↔ native bridge (roles, placeCall, settings sync)
   AndroidManifest.xml           Declares the InCallService and CallActivity
-plugins/withMosterManifest.js   All app-manifest changes (permissions, DIAL + HOME filters)
+plugins/withGrammaManifest.js   All app-manifest changes (permissions, DIAL + HOME filters)
 ```
 
 ### Why the app is the default phone app
@@ -78,10 +78,10 @@ So the app holds `ROLE_DIALER`. Consequences:
 ### Why the call screens are native
 
 `CallActivity` is plain Kotlin views, not React Native. Telecom starts it from
-`MosterInCallService` at any time — phone locked, app not running, JS not
+`GrammaInCallService` at any time — phone locked, app not running, JS not
 loaded. A native screen has no JS startup delay and no dependency on the JS
 runtime being healthy. Contacts (name, Arabic name, photo path, tile position)
-are mirrored into SharedPreferences by `MosterCall.setContacts` so the call
+are mirrored into SharedPreferences by `GrammaCall.setContacts` so the call
 screen can show who is calling. Atkinson Hyperlegible is bundled into
 `assets/fonts/` by the expo-font config plugin so native and JS screens match.
 
@@ -95,7 +95,7 @@ call, regardless of whether the app process is running.
 
 ### Storage
 
-One JSON file (`moster-config.json`) plus a `photos/` folder in the app's
+One JSON file (`gramma-config.json`) plus a `photos/` folder in the app's
 document directory, via `expo-file-system`. It survives app updates, needs no
 extra library, and keeps photos next to the config. Photos are **copied** from
 the contact or gallery at pick time, so the home screen never reads the
@@ -134,7 +134,7 @@ Telecom framework, i.e. normal cellular calls.
 
 Local builds only; no EAS. Expo SDK 57, React Native 0.86. `android/` is
 generated (`expo prebuild`) and gitignored — never edit it by hand; manifest
-changes go in `plugins/withMosterManifest.js` or the module's manifest.
+changes go in `plugins/withGrammaManifest.js` or the module's manifest.
 
 Windows notes (from experience): build from PowerShell with
 `ANDROID_HOME=C:\Android\Sdk`. Before `expo prebuild`, stop Metro and the
