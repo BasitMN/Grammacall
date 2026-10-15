@@ -1,6 +1,7 @@
 package se.basit.grammacall.call
 
 import android.content.Context
+import android.media.AudioManager
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import java.util.Locale
@@ -9,10 +10,12 @@ import java.util.Locale
 // understands Arabic.
 object CallSpeech : TextToSpeech.OnInitListener {
   private var tts: TextToSpeech? = null
+  private var appContext: Context? = null
   private var ready = false
   private var pending: String? = null
 
   fun init(context: Context) {
+    appContext = context.applicationContext
     if (tts == null) tts = TextToSpeech(context.applicationContext, this)
   }
 
@@ -42,6 +45,19 @@ object CallSpeech : TextToSpeech.OnInitListener {
       pending = text
       return
     }
+    appContext?.let { maximizeVolume(it) }
     tts?.speak(text, TextToSpeech.QUEUE_FLUSH, null, "gramma-caller")
+  }
+
+  // TTS plays on the media stream. Its volume may have been turned down (or
+  // never up) by anyone; she must always hear who is calling or being called.
+  fun maximizeVolume(context: Context) {
+    try {
+      val audio = context.getSystemService(AudioManager::class.java)
+      val max = audio.getStreamMaxVolume(AudioManager.STREAM_MUSIC)
+      audio.setStreamVolume(AudioManager.STREAM_MUSIC, max, 0)
+    } catch (e: Exception) {
+      Log.e(GrammaInCallService.TAG, "could not raise speech volume", e)
+    }
   }
 }

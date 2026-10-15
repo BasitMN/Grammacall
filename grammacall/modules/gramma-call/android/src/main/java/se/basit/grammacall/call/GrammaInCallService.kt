@@ -104,7 +104,7 @@ class GrammaInCallService : InCallService() {
 
   fun setSpeaker(on: Boolean) = safely("setSpeaker") {
     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-      // Pre-Android 14 API. Untested: only verified on Android 16.
+      // Pre-Android 14 API. Verified on Android 13 (moto e13).
       @Suppress("DEPRECATION")
       setAudioRoute(if (on) CallAudioState.ROUTE_SPEAKER else CallAudioState.ROUTE_EARPIECE)
       return@safely

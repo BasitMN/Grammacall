@@ -17,6 +17,7 @@ declare class GrammaCallModule extends NativeModule<GrammaCallModuleEvents> {
   isIgnoringBatteryOptimizations(): boolean;
   requestIgnoreBatteryOptimizations(): void;
   setRoleWarning(show: boolean): void;
+  maximizeSpeechVolume(): void;
 }
 
 export default requireNativeModule<GrammaCallModule>('GrammaCall');

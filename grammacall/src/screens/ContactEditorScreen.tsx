@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Pressable, ScrollView, StyleSheet, Switch, Text, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Portrait } from '../components/Portrait';
-import { Contact } from '../contacts';
+import { answersAutomatically, Contact } from '../contacts';
 import { pickDeviceContact, pickPhoto } from '../pickers';
 import { speakCalling } from '../speech';
 import { colors, fonts, paletteFor, settingsColors } from '../theme';
@@ -109,6 +109,22 @@ export function ContactEditorScreen({ draft: initial, onSave, onDelete, onCancel
           </Pressable>
         ))}
         {phoneChoices.length === 0 && <Text style={styles.hint}>Kontakten har inget telefonnummer.</Text>}
+
+        <Text style={styles.label}>När personen ringer</Text>
+        <View style={styles.switchRow}>
+          <Text style={styles.switchLabel}>Svara automatiskt efter 2 sekunder</Text>
+          <Switch
+            value={answersAutomatically(contact)}
+            onValueChange={(autoAnswer) => set({ autoAnswer })}
+            trackColor={{ true: colors.success, false: settingsColors.buttonBorder }}
+            thumbColor="#FFFFFF"
+          />
+        </View>
+        <Text style={styles.switchHint}>
+          {answersAutomatically(contact)
+            ? 'Telefonen svarar själv på högtalare.'
+            : 'Telefonen ringer som vanligt med SVARA och AVVISA.'}
+        </Text>
 
         <Pressable
           onPress={() => onSave(draft)}
@@ -219,6 +235,28 @@ const styles = StyleSheet.create({
   choiceSelected: {
     borderColor: colors.ink,
     borderWidth: 2,
+  },
+  switchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: settingsColors.border,
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 8,
+  },
+  switchLabel: {
+    flex: 1,
+    fontFamily: fonts.regular,
+    fontSize: 16,
+    color: colors.ink,
+  },
+  switchHint: {
+    fontFamily: fonts.regular,
+    fontSize: 13,
+    color: settingsColors.subtle,
   },
   choiceText: {
     fontFamily: fonts.regular,

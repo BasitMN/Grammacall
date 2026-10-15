@@ -55,6 +55,9 @@ lämnar appen.
    - **Foto** – kommer från kontakten. Har kontakten inget foto, tryck
      **Välj foto** och välj ett ur galleriet. En bild med tydligt ansikte är bäst.
    - **Nummer** – har personen flera nummer, välj det hen svarar på.
+   - **Svara automatiskt efter 2 sekunder** – på: telefonen svarar själv när
+     just den här personen ringer. Av: det ringer som vanligt med SVARA/AVVISA.
+     I listan står det **svarar själv** eller **ringer** för varje person.
 5. Tryck **Spara**. (Knappen är grå tills både namn och nummer finns.)
 
 ### Ändra
@@ -82,9 +85,9 @@ i grönt. Står något **Nej** i rött finns en knapp under för att rätta det.
 |---|---|---|
 | Notis: **"GrammaCall tar inte emot samtal"** | Någon har öppnat Samsungs vanliga Telefon-app, som då tog tillbaka rollen som telefonapp. | Inställningar → **Gör till standardapp för telefon** → välj GrammaCall. |
 | Hon trycker på en bild men inget samtal går ut | Samma som ovan. | Samma som ovan. |
-| Telefonen svarar inte själv | Samma som ovan, eller **Svara automatiskt** är avstängt, eller numret i appen stämmer inte med det personen ringer från. | Kontrollera TELEFONEN-statusen och brytaren under AUTOSVAR. Kontrollera numret under **Byt**. |
+| Telefonen svarar inte själv | Samma som ovan, eller **Autosvar på** är avstängt, eller personens egen brytare **Svara automatiskt** är av (listan visar "ringer"), eller numret i appen stämmer inte med det personen ringer från. | Kontrollera TELEFONEN-statusen och brytaren under AUTOSVAR. Kontrollera numret under **Byt**. |
 | Ingen högtalare | **Högtalare och max volym i alla samtal** är avstängd. | Slå på den under AUTOSVAR. |
-| Ingen arabisk röst | Arabisk röst saknas. | Androids inställningar → **Allmän hantering → Text till tal** → installera arabiska. |
+| Ingen arabisk röst | Arabisk röst saknas. (Volymen höjs automatiskt till max när rösten läser upp, så det är inte volymen.) | Androids inställningar → **Allmän hantering → Text till tal** → installera arabiska. |
 | Hemknappen leder till Samsungs vanliga skärm | Appen är inte längre hemskärm. | Inställningar → **Gör till hemskärm**. |
 | Appen verkar stängas av sig själv | Batterisparläge. | Inställningar → **Stäng av batterisparläge för appen**. |
 | Skärmen släcks på laddaren | Normalt bara om laddningen är pausad. | Inget att göra; den tänds vid nästa samtal. |

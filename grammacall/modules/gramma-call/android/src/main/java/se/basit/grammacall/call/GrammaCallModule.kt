@@ -105,6 +105,11 @@ class GrammaCallModule : Module() {
       )
     }
 
+    // Called right before every spoken announcement.
+    Function("maximizeSpeechVolume") {
+      CallSpeech.maximizeVolume(context)
+    }
+
     Function("setRoleWarning") { show: Boolean ->
       RoleWarning.update(context, show)
     }

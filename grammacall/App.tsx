@@ -9,7 +9,7 @@ import { AppState, BackHandler, PermissionsAndroid, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import GrammaCall from './modules/gramma-call';
-import { Contact } from './src/contacts';
+import { answersAutomatically, Contact } from './src/contacts';
 import { pickDeviceContact } from './src/pickers';
 import { ContactEditorScreen, EditorDraft } from './src/screens/ContactEditorScreen';
 import { HomeScreen } from './src/screens/HomeScreen';
@@ -35,7 +35,9 @@ const STATUS_CHECK_MS = 60_000;
 
 // The native side decides auto-answer and speaker without JS running.
 function syncNative(config: Config) {
-  GrammaCall.setWhitelist(config.autoAnswer ? config.contacts.map((c) => c.phone) : []);
+  // Master switch off → nobody; otherwise only people with their own switch on.
+  const autoAnswered = config.autoAnswer ? config.contacts.filter(answersAutomatically) : [];
+  GrammaCall.setWhitelist(autoAnswered.map((c) => c.phone));
   GrammaCall.setSpeaker(config.speaker);
   GrammaCall.setContacts(
     config.contacts.map(({ name, spokenName, phone, photoUri, position }) => ({

@@ -20,8 +20,9 @@ The app is **sideloaded**, never published to Play Store.
 
 | Situation | What happens |
 |---|---|
-| She taps a tile | "Ringer Fatima" screen, 5-second countdown with a big AVBRYT, Arabic "جاري الاتصال بـ …". Then a cellular call goes out, speaker on, max volume. |
-| One of her contacts calls | Green "SVARAR AUTOMATISKT" screen, Arabic "مكالمة من …", answered after 2 s, speaker on, max volume. |
+| She taps a tile | "Ringer Fatima" screen, 5-second countdown with a big AVBRYT, Arabic "جاري الاتصال بـ …" (media volume raised to max first). Then a cellular call goes out, speaker on, max volume. |
+| A contact with auto-answer on calls | Green "SVARAR AUTOMATISKT" screen, Arabic "مكالمة من …", answered after 2 s, speaker on, max volume. |
+| A contact with auto-answer off calls | Rings with their name and photo, big SVARA / AVVISA. Per-contact switch in the contact editor; master switch in settings. |
 | Anyone else calls | Normal ringing with big SVARA / AVVISA. Never auto-answered. Speaker on if she answers. |
 | Call ends | App returns to the tiles by itself. |
 | Home button / reboot | Lands on the tiles (the app is the launcher). |
@@ -123,11 +124,12 @@ Telecom framework, i.e. normal cellular calls.
   so older devices refuse the install instead of failing quietly.
 - Speaker routing uses `requestCallEndpointChange` (Android 14+). On Android
   12–13 it falls back to the deprecated `setAudioRoute`; that path is
-  **untested** (only Android 16 has been available).
+  verified on a Motorola moto e13 (Android 13 Go): route 8 = speaker after ACTIVE.
 - Must make **cellular voice calls**. Many LTE tablets only do data; on those
   the app cannot call or answer at all.
 - An Arabic text-to-speech voice (Google or Samsung TTS).
-- Verified on: Samsung Galaxy S26 Ultra (SM-S948B), Android 16, One UI 8.5.
+- Verified on: Samsung Galaxy S26 Ultra (SM-S948B), Android 16, One UI 8.5;
+  Motorola moto e13 (Android 13 Go edition, 2 GB RAM) — outgoing call + speaker.
   Re-run `TESTSKRIPT.md` on her actual device — OEM skins differ.
 
 ## Building

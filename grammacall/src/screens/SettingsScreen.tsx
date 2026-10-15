@@ -3,7 +3,7 @@ import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from 'react-nat
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Portrait } from '../components/Portrait';
-import { Contact, MAX_CONTACTS } from '../contacts';
+import { answersAutomatically, Contact, MAX_CONTACTS } from '../contacts';
 import { Config } from '../store';
 import { colors, fonts, paletteFor, settingsColors } from '../theme';
 
@@ -24,7 +24,6 @@ type Props = {
   onLock: () => void;
 };
 
-const COUNT_WORDS = ['', 'denna', 'dessa två', 'dessa tre', 'dessa fyra', 'dessa fem', 'dessa sex', 'dessa sju', 'dessa åtta', 'dessa nio'];
 
 export function SettingsScreen(props: Props) {
   const { config } = props;
@@ -52,7 +51,9 @@ export function SettingsScreen(props: Props) {
               <Portrait photoUri={contact.photoUri} palette={paletteFor(contact.position)} style={styles.thumb} />
               <View style={styles.rowText}>
                 <Text style={styles.rowName} numberOfLines={1}>{contact.name}</Text>
-                <Text style={styles.rowSub} numberOfLines={1}>{contact.phone} · plats {i + 1}</Text>
+                <Text style={styles.rowSub} numberOfLines={1}>
+                  plats {i + 1} · {answersAutomatically(contact) && config.autoAnswer ? 'svarar själv' : 'ringer'} · {contact.phone}
+                </Text>
               </View>
               <SmallButton label="▲" disabled={i === 0} onPress={() => props.onMove(contact, -1)} />
               <SmallButton label="▼" disabled={i === contacts.length - 1} onPress={() => props.onMove(contact, 1)} />
@@ -69,7 +70,7 @@ export function SettingsScreen(props: Props) {
         <Text style={styles.section}>AUTOSVAR</Text>
         <View style={styles.card}>
           <ToggleRow
-            label={`Svara automatiskt för ${COUNT_WORDS[contacts.length] || 'dessa'}`}
+            label="Autosvar på (för personer där det är valt)"
             value={config.autoAnswer}
             onChange={props.onAutoAnswer}
             divider

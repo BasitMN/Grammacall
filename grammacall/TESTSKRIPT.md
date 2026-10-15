@@ -64,7 +64,9 @@ Markera varje steg: ✅ som förväntat, ❌ avvikelse (skriv vad som hände).
 | 23 | Lägg till en person (+ Lägg till kontakt). Skriv arabiskt namn, tryck ▶ Lyssna. | Arabisk uppläsning av namnet. Efter Spara syns personen på hemskärmen med foto. |
 | 24 | Flytta personen med ▲. | Ordningen ändras på hemskärmen. |
 | 25 | Ta bort personen igen. | Försvinner från hemskärmen. |
-| 26 | Stäng av **Svara automatiskt**. Ring från B. | Ringer med SVARA/AVVISA, besvaras **inte** automatiskt. Slå på igen. |
+| 26 | Öppna personen för telefon B (**Byt**), stäng av **Svara automatiskt efter 2 sekunder**, Spara. Ring från B. | Listan visar "ringer". Samtalet ringer med SVARA/AVVISA och besvaras **inte** automatiskt. Slå på igen. |
+| 26b | Stäng av huvudbrytaren **Autosvar på**. Ring från B. | Besvaras inte automatiskt, oavsett personens brytare. Slå på igen. |
+| 26c | Sänk mediavolymen till noll. Tryck på en bild. | Den arabiska uppläsningen hörs ändå tydligt (volymen höjs automatiskt). Tryck AVBRYT. |
 | 27 | Lås inställningarna med **Lås**. | Tillbaka till bilderna. |
 | 28 | Öppna inställningarna och tryck hemknappen. | Inställningarna låses; bilderna visas. |
 
