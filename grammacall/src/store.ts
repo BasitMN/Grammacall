@@ -1,6 +1,6 @@
 import { Directory, File, Paths } from 'expo-file-system';
 
-import { Contact } from './contacts';
+import { Contact, normalizePhone } from './contacts';
 
 // Everything the nephew configures. One JSON file in the app's document
 // folder: survives app updates, needs no extra library, and sits next to
@@ -26,7 +26,9 @@ const photoDir = new Directory(Paths.document, 'photos');
 export function loadConfig(): Config {
   try {
     if (!configFile.exists) return DEFAULT_CONFIG;
-    return { ...DEFAULT_CONFIG, ...JSON.parse(configFile.textSync()) };
+    const saved: Config = { ...DEFAULT_CONFIG, ...JSON.parse(configFile.textSync()) };
+    // Contacts saved before numbers were normalised get fixed on load.
+    return { ...saved, contacts: saved.contacts.map((c) => ({ ...c, phone: normalizePhone(c.phone) })) };
   } catch (e) {
     console.warn('could not read config, using defaults', e);
     return DEFAULT_CONFIG;

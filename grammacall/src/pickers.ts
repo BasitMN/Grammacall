@@ -1,6 +1,8 @@
 import { Contact as DeviceContact, requestPermissionsAsync } from 'expo-contacts';
 import { launchImageLibraryAsync } from 'expo-image-picker';
 
+import { normalizePhone } from './contacts';
+
 export type PickedContact = {
   name: string;
   phones: string[];
@@ -18,7 +20,10 @@ export async function pickDeviceContact(): Promise<PickedContact | null> {
     picked.getPhones(),
     picked.getImage(),
   ]);
-  const numbers = phones.map((p) => p.number).filter((n): n is string => !!n);
+  const numbers = phones
+    .map((p) => p.number)
+    .filter((n): n is string => !!n)
+    .map(normalizePhone);
   return { name, phones: [...new Set(numbers)], imageUri };
 }
 

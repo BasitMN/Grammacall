@@ -9,7 +9,7 @@ import { AppState, BackHandler, PermissionsAndroid, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import GrammaCall from './modules/gramma-call';
-import { answersAutomatically, Contact } from './src/contacts';
+import { answersAutomatically, Contact, normalizePhone } from './src/contacts';
 import { pickDeviceContact } from './src/pickers';
 import { ContactEditorScreen, EditorDraft } from './src/screens/ContactEditorScreen';
 import { HomeScreen } from './src/screens/HomeScreen';
@@ -148,7 +148,7 @@ export default function App() {
   const dial = useCallback(
     (contact: Contact) => {
       try {
-        GrammaCall.placeCall(contact.phone);
+        GrammaCall.placeCall(normalizePhone(contact.phone));
       } catch (e) {
         // Never surface errors to her; the nephew sees this in logcat.
         console.warn('placeCall failed', e);
@@ -184,7 +184,7 @@ export default function App() {
   };
 
   const saveContact = (draft: EditorDraft) => {
-    let contact = { ...draft.contact, name: draft.contact.name.trim() };
+    let contact = { ...draft.contact, name: draft.contact.name.trim(), phone: normalizePhone(draft.contact.phone) };
     if (draft.newPhotoSource) {
       try {
         const cached = cachePhoto(draft.newPhotoSource, contact.id);
